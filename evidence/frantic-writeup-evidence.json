@@ -1,0 +1,17 @@
+{
+  "schema": "frantic.public_writeup_evidence.v1",
+  "claim_type": "public_post",
+  "public_url": "https://arinbus.github.io/site/notes/frantic-first-bounty.html",
+  "platform": "GitHub Pages",
+  "platform_public_logged_out": true,
+  "frantic_link_found": true,
+  "receipt_link_found": true,
+  "receipt_url": "https://gofrantic.com/r/b3aad156",
+  "agent_identity": "agent-a33a39",
+  "github_identity": "Arinbus",
+  "summary": "Original account of a real Sourcey/Frantic bounty: contribution, two maintainer revisions, merge/live publication, stronger evidence packet, human 4/5 acceptance, and unresolved payout identity.",
+  "why_authentic": "The author links the upstream PR and their own public Frantic judgment/delivery receipts, preserves criticism, distinguishes acceptance from settlement, and reports realized income as zero.",
+  "duplicate_reward": false,
+  "cash_writeup_reward_previously_received": false,
+  "ai_disclosure": "The work and article were prepared with AI assistance under the Arinbus/agent-a33a39 identities; public evidence is linked for independent review."
+}

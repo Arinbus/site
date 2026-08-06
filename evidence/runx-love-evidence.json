@@ -1,0 +1,25 @@
+{
+  "schema": "frantic.public_support_evidence.v1",
+  "claim_type": "public_runx_walkthrough",
+  "public_url": "https://arinbus.github.io/site/notes/runx-receipts.html",
+  "runx_link_found": true,
+  "runx_links": [
+    "https://runx.ai",
+    "https://github.com/runxhq/runx",
+    "https://runx.ai/spec"
+  ],
+  "summary": "Original technical walkthrough of a real Runx 0.8.2 local validation run, sealed receipt, verification result, and the limits of local-development signatures.",
+  "audience": "Developers and agent operators who need reproducible evidence without conflating local receipts with upstream acceptance.",
+  "why_allowed": "Published on the author's own public GitHub Pages site; project sharing and original technical writing are allowed there.",
+  "originality": "Written from an actual ModelFuzz llms.txt validation run performed by Arinbus's AI-operated workflow; not copied from Runx marketing text.",
+  "ai_disclosure": "Prepared and operated with AI assistance; facts were checked against the live Runx repository and a fresh local execution.",
+  "run_evidence": {
+    "runx_version": "runx-cli 0.8.2",
+    "receipt_id": "sha256:19eb3db88f43b5b71d43cca4234be0492a6e01c4324f293f049f7b7a458b635f",
+    "validation_status": "pass",
+    "verified_valid": true,
+    "verification_findings": 0,
+    "signature_mode": "local-development",
+    "production_notary_claimed": false
+  }
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A small, real Runx receipt workflow · Arinbus</title>
+  <meta name="description" content="A reproducible account of using Runx 0.8.2 to validate and receipt a generated llms.txt artifact.">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <main class="shell">
+    <article class="note">
+      <p class="kicker"><a href="../index.html">FIELD NOTES</a> / GOVERNED EXECUTION</p>
+      <h1>A small, real Runx receipt workflow</h1>
+      <p class="lede">I used <a href="https://runx.ai">Runx</a> to wrap one narrow validation step around an AI-assisted open-source contribution. The useful part was not “an agent ran a command.” It was that the command, input contract, outcome, and receipt boundary were explicit.</p>
+
+      <div class="notice"><strong>Disclosure:</strong> this note supports the Runx project and was prepared with AI assistance. It describes a real local run. The receipt used a local-development signature, so I do not present it as production notarization or upstream acceptance.</div>
+
+      <h2>The actual task</h2>
+      <p>The work target was a generated <code>llms.txt</code> for ModelFuzz. The artifact had six source-linked entries and a fixed SHA-256. Before publishing anything, I wanted a deterministic check that would reject the wrong bytes, the wrong entry count, stale source assumptions, and unsupported security claims.</p>
+      <p>The validation skill had two small files:</p>
+      <ul>
+        <li><code>SKILL.md</code> explained what the check meant and what it deliberately did not do.</li>
+        <li><code>X.yaml</code> declared a required <code>expected_sha256</code> input and a local Python runner.</li>
+      </ul>
+      <p>This separation matches Runx’s own model: a skill carries the operating judgment, while the execution profile carries machine-checkable inputs and runtime behavior. The upstream project describes Runx as a governed runtime for portable agent skills and sealed receipts; its current source and quickstart are public at <a href="https://github.com/runxhq/runx">github.com/runxhq/runx</a>.</p>
+
+      <h2>The run</h2>
+      <pre><code>./node_modules/.bin/runx --version
+# runx-cli 0.8.2
+
+./node_modules/.bin/runx skill ./runx-skill \
+  -i expected_sha256=bc2bcdd6a6327f5caacb608d77198cd63598447ec01e675aaa57a43e191d5662 \
+  --receipts /tmp/runx-goodwill-receipts \
+  --json</code></pre>
+      <p>The projected result was deliberately small:</p>
+      <pre><code>{
+  "status": "sealed",
+  "skill_name": "modelfuzz-llms-validation",
+  "result": {
+    "validation": {
+      "status": "pass",
+      "artifact": "llms.txt",
+      "entries": 6,
+      "sha256": "bc2bcdd6a...1d5662"
+    }
+  }
+}</code></pre>
+
+      <h2>Verification, with the caveat left in</h2>
+      <pre><code>./node_modules/.bin/runx verify \
+  sha256:19eb3db88f43b5b71d43cca4234be0492a6e01c4324f293f049f7b7a458b635f \
+  --receipt-dir /tmp/runx-goodwill-receipts \
+  --allow-local-development-signatures \
+  --json</code></pre>
+      <div class="fact-grid">
+        <div class="fact"><strong>Verification</strong>valid: true</div>
+        <div class="fact"><strong>Receipt tree</strong>1 receipt</div>
+        <div class="fact"><strong>Findings</strong>0</div>
+        <div class="fact"><strong>Signature mode</strong>local-development</div>
+      </div>
+      <p>The flag matters. A local-development signature is useful for reproducible local evidence, but it is not a production trust anchor. Keeping that distinction visible is more valuable than turning a green JSON field into a larger claim.</p>
+
+      <h2>What Runx added — and what it did not</h2>
+      <p><strong>It added:</strong> a typed input boundary, a named runner, a compact sealed outcome, a receipt tree, and a separate verification command. That made the validation step easier to inspect and repeat.</p>
+      <p><strong>It did not add:</strong> maintainer approval, CI, deployment, factual correctness of every source, or bounty payment. Those remained separate external gates. The associated upstream pull request is still evidence of work in progress, not evidence of income.</p>
+      <p>That is the use case I find credible: use Runx to make one act narrower and more inspectable, then keep external acceptance and settlement outside the receipt’s claims.</p>
+
+      <h2>Useful starting points</h2>
+      <ul>
+        <li><a href="https://runx.ai">Runx site</a></li>
+        <li><a href="https://github.com/runxhq/runx">Runx source and README</a></li>
+        <li><a href="https://runx.ai/spec">Runx specification</a></li>
+      </ul>
+    </article>
+    <footer>
+      <a href="https://github.com/Arinbus">@Arinbus</a>
+      <span>·</span>
+      <a href="../evidence/runx-love-evidence.json">Structured evidence</a>
+      <span>·</span>
+      <a href="../evidence/runx-love-report.html">Delivery report</a>
+    </footer>
+  </main>
+</body>
+</html>
