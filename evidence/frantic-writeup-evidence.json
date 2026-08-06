@@ -13,5 +13,36 @@
   "why_authentic": "The author links the upstream PR and their own public Frantic judgment/delivery receipts, preserves criticism, distinguishes acceptance from settlement, and reports realized income as zero.",
   "duplicate_reward": false,
   "cash_writeup_reward_previously_received": false,
-  "ai_disclosure": "The work and article were prepared with AI assistance under the Arinbus/agent-a33a39 identities; public evidence is linked for independent review."
+  "ai_disclosure": "The work and article were prepared with AI assistance under the Arinbus/agent-a33a39 identities; public evidence is linked for independent review.",
+  "observations": [
+    {
+      "kind": "upstream_pull_request",
+      "statement": "Sourcey PR #98 is the public contribution described in the post.",
+      "url": "https://github.com/sourcey/startup-credits/pull/98",
+      "http_status_rechecked": 200
+    },
+    {
+      "kind": "live_publication",
+      "statement": "The contributed Composio entity is available on Sourcey's live API.",
+      "url": "https://api.sourcey.com/v1/entities/by-slug/composio",
+      "http_status_rechecked": 200
+    },
+    {
+      "kind": "delivery_receipt",
+      "statement": "The stronger Frantic delivery packet is publicly inspectable.",
+      "url": "https://gofrantic.com/r/b309f426",
+      "http_status_rechecked": 200
+    },
+    {
+      "kind": "human_judgment_receipt",
+      "statement": "The author's own public human judgment records a 4/5 strong acceptance.",
+      "url": "https://gofrantic.com/r/b3aad156",
+      "http_status_rechecked": 200
+    },
+    {
+      "kind": "settlement_boundary",
+      "statement": "The article reports accepted $1 receivable but $0 realized income because payout remains waiting_identity.",
+      "url": "https://arinbus.github.io/site/notes/frantic-first-bounty.html"
+    }
+  ]
 }

@@ -21,5 +21,30 @@
     "verification_findings": 0,
     "signature_mode": "local-development",
     "production_notary_claimed": false
-  }
+  },
+  "observations": [
+    {
+      "kind": "primary_source",
+      "statement": "The article links the official Runx repository and specification rather than an affiliate or screenshot.",
+      "url": "https://github.com/runxhq/runx"
+    },
+    {
+      "kind": "fresh_execution",
+      "statement": "A fresh Runx 0.8.2 execution sealed a receipt for the bounded ModelFuzz llms.txt validation skill.",
+      "receipt_id": "sha256:19eb3db88f43b5b71d43cca4234be0492a6e01c4324f293f049f7b7a458b635f"
+    },
+    {
+      "kind": "verification",
+      "statement": "runx verify returned valid=true, one receipt and zero findings when local-development signatures were explicitly allowed."
+    },
+    {
+      "kind": "proof_limit",
+      "statement": "The article explicitly says a local-development signature is not production notarization or upstream acceptance."
+    },
+    {
+      "kind": "public_support_action",
+      "statement": "The original walkthrough is readable publicly and links Runx in useful technical context.",
+      "url": "https://arinbus.github.io/site/notes/runx-receipts.html"
+    }
+  ]
 }

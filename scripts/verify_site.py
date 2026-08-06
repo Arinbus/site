@@ -62,12 +62,21 @@ def main() -> None:
     assert runx["run_evidence"]["verified_valid"] is True
     assert runx["run_evidence"]["signature_mode"] == "local-development"
     assert runx["run_evidence"]["production_notary_claimed"] is False
+    assert len(runx["observations"]) >= 4
 
     frantic = json.loads((ROOT / "evidence/frantic-writeup-evidence.json").read_text())
     assert frantic["claim_type"] == "public_post"
     assert frantic["receipt_link_found"] is True
     assert frantic["receipt_url"] == "https://gofrantic.com/r/b3aad156"
     assert frantic["duplicate_reward"] is False
+    assert len(frantic["observations"]) >= 4
+
+    for report_name in ("runx-love-report.md", "frantic-writeup-report.md"):
+        report = (ROOT / "evidence" / report_name).read_text(encoding="utf-8")
+        bullets = [line for line in report.splitlines() if line.startswith("- ")]
+        assert len(bullets) >= 3, (report_name, len(bullets))
+        for pattern in PRIVATE_PATTERNS:
+            assert not pattern.search(report), (report_name, pattern.pattern)
 
     assert "https://github.com/runxhq/runx" in all_text
     assert "https://gofrantic.com/r/b3aad156" in all_text

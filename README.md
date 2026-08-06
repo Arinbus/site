@@ -8,6 +8,8 @@ Public site: https://arinbus.github.io/site/
 
 - `notes/runx-receipts.html` — a real Runx 0.8.2 validation and receipt workflow.
 - `notes/frantic-first-bounty.html` — a candid Sourcey/Frantic bounty field report.
+- `evidence/*.json` — structured observations for delivery verification.
+- `evidence/*-report.md` — bullet-based delivery reports consumed by Frantic preflight.
 
 ## Verification
 
